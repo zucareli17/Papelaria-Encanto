@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config/db.php';
+require_once 'db.php';
 $paginaAtual = 'produtos';
 
 $pdo = conectarBanco();
@@ -32,11 +32,11 @@ $produtos = $stmt->fetchAll();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo — Papelaria Encanto</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<?php include __DIR__ . '/includes/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <section class="produtos" style="padding-top:60px;">
   <div class="container">
@@ -74,6 +74,6 @@ $produtos = $stmt->fetchAll();
   </div>
 </section>
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>
