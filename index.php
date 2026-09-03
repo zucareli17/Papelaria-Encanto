@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config/db.php';
+require_once 'db.php';
 $paginaAtual = 'index';
 
 
@@ -18,6 +18,10 @@ $destaques = $stmt->fetchAll();
 $categorias = $pdo->query("SELECT * FROM categorias ORDER BY nome")->fetchAll();
 
 
+
+print_r($categorias);
+
+
 $status = $_GET['status'] ?? null;
 ?>
 <!DOCTYPE html>
@@ -27,11 +31,11 @@ $status = $_GET['status'] ?? null;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Papelaria Encanto — Papelaria de bairro com curadoria própria</title>
 <meta name="description" content="Cadernos, canetas, kits de artesanato e planners com curadoria própria. Visite a Papelaria Encanto.">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<?php include __DIR__ . '/includes/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <!-- HERO -->
 <section class="hero">
@@ -211,6 +215,6 @@ $status = $_GET['status'] ?? null;
   </div>
 </section>
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>
