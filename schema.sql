@@ -1,16 +1,11 @@
--- ============================================================
--- Papelaria Encanto — schema.sql
--- Banco de dados básico: categorias, produtos e contatos
--- ============================================================
 
 CREATE DATABASE IF NOT EXISTS papelaria_encanto
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE papelaria_encanto;
 
--- --------------------------------------------------------------
+
 -- Tabela: categorias
--- --------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS categorias (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(60) NOT NULL,
@@ -18,9 +13,7 @@ CREATE TABLE IF NOT EXISTS categorias (
   icone VARCHAR(10) DEFAULT '📎'
 ) ENGINE=InnoDB;
 
--- --------------------------------------------------------------
 -- Tabela: produtos
--- --------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS produtos (
   id INT AUTO_INCREMENT PRIMARY KEY,
   categoria_id INT NOT NULL,
@@ -33,9 +26,7 @@ CREATE TABLE IF NOT EXISTS produtos (
   FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 ) ENGINE=InnoDB;
 
--- --------------------------------------------------------------
 -- Tabela: contatos (leads do formulário)
--- --------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS contatos (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(120) NOT NULL,
@@ -46,19 +37,15 @@ CREATE TABLE IF NOT EXISTS contatos (
   criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- --------------------------------------------------------------
 -- Dados de exemplo — categorias
--- --------------------------------------------------------------
 INSERT INTO categorias (nome, slug, icone) VALUES
-('Cadernos & Blocos', 'cadernos', '📓'),
-('Canetas & Escrita', 'canetas', '🖊️'),
-('Artesanato & DIY', 'artesanato', '✂️'),
-('Organização & Planners', 'planners', '🗓️'),
-('Presentes & Papelaria fina', 'presentes', '🎁');
+('Cadernos & Blocos', 'cadernos'),
+('Canetas & Escrita', 'canetas'),
+('Artesanato & DIY', 'artesanato'),
+('Organização & Planners', 'planners'),
+('Presentes & Papelaria fina', 'presentes');
 
--- --------------------------------------------------------------
 -- Dados de exemplo — produtos
--- --------------------------------------------------------------
 INSERT INTO produtos (categoria_id, nome, descricao, preco, cor_etiqueta, destaque) VALUES
 (1, 'Caderno Pontilhado Kraft', 'Capa dura kraft, 120 folhas, ideal para bullet journal', 42.90, 'amarelo', 1),
 (1, 'Bloco de Notas Adesivo', 'Kit com 6 blocos coloridos autoadesivos', 18.50, 'rosa', 0),
